@@ -12,7 +12,7 @@ const ROUTES: Routes = [
     { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 
-export const APPROUTING = RouterModule.forRoot(ROUTES, {useHash: true});
+export const APPROUTING = RouterModule.forRoot(ROUTES);
 
 
 
