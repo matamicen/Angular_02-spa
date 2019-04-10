@@ -1,24 +1,27 @@
 
-<h1>Nombre del heroe <small>fecha aparicion</small></h1>
+<h1>{{heroe.nombre}}<small>{{heroe.aparicion}}</small></h1>
 <hr>
 
 <div class="row">
    <div class="col-md-4">
     
-    <img src="assets/images/hulk.png" class="img-fluid" alt="">
+    <img [src]="heroe.img" [alt]="heroe.nombre" class="img-fluid">
     <br><br>
     <a href="" class="btn btn btn-outline-primary btn-block">Regresar</a>
   </div>
 
   <div class="col-md-8">
-    <h3>Nombre heroe</h3>
+    <h3>{{heroe.nombre}}</h3>
     <hr>
     <p>
-      bio del heroe
+      {{heroe.bio}}
     </p>
     <div>
       <!-- Imagen de Marvel o DC depende que corresponda -->
-      <img src="" alt=""> 
+      <img *ngIf="heroe.casa==='Marvel'" src="assets/images/marvel.png" alt="marvel"  height="50%"
+      width="50%"> 
+      <img *ngIf="heroe.casa==='DC'" src="assets/images/dc.png" alt="dc" height="50%"
+      width="50%"> 
     </div>
 
   </div>
