@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { HeroesService,Heroe } from "../../servicios/heroes.service";
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './heroes.component.html'
  
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent implements OnInit, OnDestroy {
 
   heroes :Heroe [] = [];
   
@@ -18,6 +18,15 @@ export class HeroesComponent implements OnInit {
 
     this.heroes = this._heroesService.getHeroes();
     console.log(this.heroes);
+    console.log('ngOnInit');
+    
+    
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    console.log('ngOnDestroy');
     
   }
 
