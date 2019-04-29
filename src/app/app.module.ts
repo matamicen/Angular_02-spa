@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpModule} from '@angular/http';
 
 
 //Rutas
@@ -29,10 +30,12 @@ import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.
     BuscadorComponent,
     HeroeTarjetaComponent,
     
+    
   ],
   imports: [
     BrowserModule,
-    APPROUTING
+    APPROUTING,
+    HttpModule
   ],
   providers: [
     HeroesService

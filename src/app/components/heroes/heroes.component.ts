@@ -10,13 +10,26 @@ import { Router } from '@angular/router';
 })
 export class HeroesComponent implements OnInit, OnDestroy {
 
+  //heroes :any = [];
   heroes :Heroe [] = [];
   
   constructor(private router:Router, private _heroesService:HeroesService) { }
 
   ngOnInit() {
 
-    this.heroes = this._heroesService.getHeroes();
+  //  this.heroes = this._heroesService.getHeroes();
+
+     this._heroesService.getHeroes()
+    .subscribe(data => {
+      console.log(data)
+      this.heroes = data.results;
+    },
+       error => {
+         console.log("fallo el call de la API");
+        
+         console.log(error)
+       });
+
     console.log(this.heroes);
     console.log('ngOnInit');
     
@@ -31,7 +44,7 @@ export class HeroesComponent implements OnInit, OnDestroy {
   }
 
   verHeroe(idx:number) {
-    // console.log(idx);
+     console.log("viene del emitter:",idx);
     this.router.navigate(['/heroe',idx]);
   }
 
